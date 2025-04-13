@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Шифрование</title>
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="styles_ch.css">
+  <link rel="shortcut icon" type="image/png" href="Icon.png">
+
+</head>
+<body>
+  <header class="header">
+    <div class="logo"><a href="index.html">Криптография</a></div>
+    <nav class="nav">
+      <a href="ciphers.html">Шифрование</a>
+      <a href="methods.html">Методы шифрования</a>
+      <a href="gen.html">Генератор паролей</a>
+      <a href="history.html">История криптографии</a>
+      <a href="random.html">Рандомайзеры</a>
+    </nav>
+    <div id="theme-toggle" class="theme-toggle">🌞</div>
+  </header>
+
+  <main class="container">
+
+    <div class="cipher-selector">
+      <button id="cipher-menu-toggle" class="menu-button">Выбрать шифр</button>
+      <div id="cipher-menu" class="cipher-menu">
+        <label><input type="radio" name="cipher" value="caesar" checked> Шифр Цезаря</label>
+        <label><input type="radio" name="cipher" value="atbash"> Шифр Атбаш</label>
+        <label><input type="radio" name="cipher" value="vigenere"> Шифр Виженера</label>
+        <label><input type="radio" name="cipher" value="reverse"> Обратный шифр</label>
+        <label><input type="radio" name="cipher" value="rot13"> Шифр ROT13</label>
+      </div>
+    </div>
+
+    <div id="shift-input-container" class="shift-input-container">
+      <label for="shift-value">Сдвиг (для Цезаря и Виженера):</label>
+      <input type="number" id="shift-value" class="shift-input" value="3" min="1" max="33">
+    </div>
+
+    <div class="block">
+      <textarea id="input-text" class="text-area" placeholder="Введите текст на русском или английском..."></textarea>
+    </div>
+
+    <div class="action-buttons">
+      <button id="encrypt-btn" class="action-btn">Зашифровать</button>
+      <div class="transfer-button-container">
+        <button id="transfer-btn" class="transfer-btn" title="Перенести текст">
+          <span class="arrow up">⬆</span><span class="arrow down">⬇</span>
+        </button>        
+      </div>
+      <button id="decrypt-btn" class="action-btn">Расшифровать</button>
+    </div>
+
+  
+    
+    <div class="block">
+      <textarea id="output-text" class="text-area" readonly placeholder="Зашифрованный/расшифрованный текст появится здесь..."></textarea>
+    </div>
+  </main>
+
+  <div class="bubble bubble1"></div>
+  <div class="bubble bubble2"></div>
+  <div class="bubble bubble3"></div>
+  <div class="bubble bubble4"></div>
+  <div class="bubble bubble5"></div>
+  <div class="bubble bubble6"></div>
+  <div class="bubble bubble7"></div>
+
+  <script src="script_ch.js"></script>
+  <script src="script.js"> </script>
+</body>
+</html>
