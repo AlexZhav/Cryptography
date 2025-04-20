@@ -7,7 +7,12 @@
   <link rel="stylesheet" href="base.css">
   <script defer src="script.js"></script>
   <link rel="shortcut icon" type="image/png" href="Icon.png">
-
+  <script>
+    try {
+      const theme = localStorage.getItem('theme');
+      if (theme === 'dark') document.body.classList.add('dark-theme');
+    } catch (e) {}
+  </script>
 </head>
 <body>
   <header class="header">

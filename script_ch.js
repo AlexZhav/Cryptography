@@ -157,25 +157,6 @@ decryptBtn.addEventListener('click', () => {
 document.addEventListener('DOMContentLoaded', () => {
     loadInputText();
 });
-document.addEventListener('DOMContentLoaded', () => {
-    const bubbleContainer = document.querySelector('.bubble-container');
-    
-    // Создаем несколько пузырьков
-    for (let i = 0; i < 15; i++) {
-      const bubble = document.createElement('div');
-      bubble.classList.add('bubble');
-      bubble.style.width = `${Math.random() * 100 + 50}px`;
-      bubble.style.height = bubble.style.width;
-      
-      // Устанавливаем случайное начальное положение и конечные точки
-      bubble.style.left = `${Math.random() * 100}vw`;
-      bubble.style.top = `${Math.random() * 100}vh`;
-      bubble.style.setProperty('--bubble-end-x', `${Math.random() * 200 - 100}vw`);
-      bubble.style.setProperty('--bubble-end-y', `${Math.random() * 200 - 100}vh`);
-      
-      bubbleContainer.appendChild(bubble);
-    }
-  });
   const transferBtn = document.getElementById('transfer-btn');
 
   transferBtn.addEventListener('click', () => {

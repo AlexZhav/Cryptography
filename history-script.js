@@ -1,19 +1,3 @@
-// Темы
-const themeToggleButton = document.getElementById('theme-toggle');
-const body = document.body;
-
-// Тему в локал
-document.addEventListener('DOMContentLoaded', () => {
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    document.body.classList.toggle('dark-theme', savedTheme === 'dark');
-    document.getElementById('theme-toggle').textContent = savedTheme === 'dark' ? '🌙' : '🌞';
-});
-
-themeToggleButton.addEventListener('click', () => {
-    const isDark = document.body.classList.toggle('dark-theme');
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    themeToggleButton.textContent = isDark ? '🌙' : '🌞';
-});
 
 const historyBlocks = document.querySelectorAll('.history-block');
 

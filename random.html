@@ -27,50 +27,66 @@
         <div class="tab active" data-target="tab1">Колесо</div>
         <div class="tab" data-target="tab2">Кубик</div>
         <div class="tab" data-target="tab3">Монетка</div>
-        <div class="tab" dara-target="tab4">Цитата дня</div>
+        <div class="tab" data-target="tab4">Цитата дня</div>
     </div>
 
 
     <div id="tab1" class="content active">
-        <div id="container">
-            <div id="wheel-container">
-                <div id="pointer"></div>
-                <canvas id="wheel"></canvas>
-                <div style="text-align: center; margin-top: 10px;">
-                    <button id="spin-wheel">Крутить колесо</button>
+        <div class="wheel-section-container">
+            <p class="wheel-result"></p>
+            <div id="container">
+                <div id="wheel-container">
+                    <div id="pointer"></div>
+                    <canvas id="wheel"></canvas>
+                    <div style="margin-top: 10px;">
+                        <button id="spin-wheel">Крутить колесо</button>
+                    </div>
                 </div>
-            </div>
-            <div>
-                <div id="sector-controls">
-                    <button id="decrease-sectors">−</button>
-                    <input type="number" id="sector-count" value="4" min="2" max="40" step="1">
-                    <button id="increase-sectors">+</button>
+                <div>
+                    <div id="sector-controls">
+                        <button id="decrease-sectors">−</button>
+                        <input type="number" id="sector-count" value="4" min="2" max="40" step="1">
+                        <button id="increase-sectors">+</button>
+                    </div>
+                    <div id="sector-info"></div>
                 </div>
-                <div id="sector-info"></div>
             </div>
         </div>
     </div>
     
 
     <div id="tab2" class="content">
-        <div class="scene">
-            <div class="cube" id="cube">
-                <div class="face front"><span class="dot"></span></div>
-                <div class="face back"><span class="dot"></span><span class="dot"></span></div>
-                <div class="face right"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-                <div class="face left"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-                <div class="face top"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-                <div class="face bottom"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+        <div class="cube-section-container">
+            <div class="cube-layout-wrapper">
+                <div class="scene">
+                    <div class="cube" id="cube">
+                        <div class="face front"><span class="dot"></span></div>
+                        <div class="face back"><span class="dot"></span><span class="dot"></span></div>
+                        <div class="face right"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+                        <div class="face left"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+                        <div class="face top"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+                        <div class="face bottom"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+                    </div>
+                </div>
+                <button class="roll-button" onclick="rollDice()">Бросить кубик</button>
             </div>
         </div>
-        <button class="roll-button" onclick="rollDice()">Бросить кубик</button>
     </div>
     <div id="tab3" class="content">
         <h2>Орел или Решка</h2>
-        <div class="coin-container">
-            <div id="coin" class="coin"></div>
+        <div class="coin-container-new">
+            <div class="coin-new" id="coin-graphic">
+                <!-- Изначальное изображение будет установлено через JS -->
+            </div>
+            <button id="toss-button-coin" class="roll-button">Подбросить монетку</button>
+            <p class="coin-result"></p>
         </div>
-        <button class="roll-button" onclick="flipCoin()">Подбросить монетку</button>
+    </div>
+    <div id="tab4" class="content">
+        <div class="quote-container">
+            <div id="quote-display" class="quote-display"></div>
+            <button class="quote-button" onclick="generateQuote()">Получить цитату</button>
+        </div>
     </div>
     <div class="bubble bubble1"></div>
     <div class="bubble bubble2"></div>

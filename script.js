@@ -25,9 +25,11 @@ sections.forEach(section => {
 
 
 const startButton = document.querySelector('.start-btn');
-startButton.addEventListener('click', () => {
-  window.location.href = 'ciphers.html'; 
-});
+if (startButton) {
+    startButton.addEventListener('click', () => {
+        window.location.href = 'ciphers.html'; 
+    });
+}
 
 
 function showNotification(message, duration = 3000) {
@@ -55,3 +57,5 @@ function showNotification(message, duration = 3000) {
 }
 
 window.alert = showNotification; 
+
+

@@ -5,8 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Генератор и Проверка Паролей</title>
     <link rel="shortcut icon" type="image/png" href="Icon.png">
-
     <link rel="stylesheet" href="base.css">
+    <script>
+        try {
+          const theme = localStorage.getItem('theme');
+          if (theme === 'dark') document.body.classList.add('dark-theme');
+        } catch (e) {}
+      </script>
 </head>
 <body>
 
@@ -72,6 +77,6 @@
     <div class="bubble bubble7"></div>
 
     <script src="script_gen.js"></script>
-    <script src="history-script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
