@@ -37,13 +37,19 @@ body {
     transition: background-color 0.3s;
     flex-wrap: wrap;
     position: relative;
-    z-index: 1;
+    z-index: 10;
 }
 
 .logo {
     font-size: 1.5rem;
     font-weight: bold;
     color: var(--accent-color);
+}
+
+.logo-theme-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
 .logo a {
@@ -53,6 +59,12 @@ body {
 
 .logo a:hover {
     color: var(--accent-color);
+}
+
+.nav {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
 }
 
 .nav a {
@@ -257,26 +269,146 @@ button:hover, .details-btn:hover, .start-btn:hover {
     transform: scale(1.05);
 }
 
+/* Гамбургер-меню */
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.hamburger-menu .line {
+    width: 100%;
+    height: 3px;
+    background-color: var(--accent-color);
+    transition: all 0.3s ease;
+}
+
+.hamburger-menu.open .line:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger-menu.open .line:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.open .line:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Выпадающее меню */
+.dropdown-menu {
+    position: fixed;
+    top: 70px;
+    right: 20px;
+    background-color: var(--header-bg-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+    z-index: 9999;
+}
+
+.dropdown-menu.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-menu a {
+    padding: 15px;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: color 0.3s, background-color 0.3s;
+    font-size: 1.1rem;
+    text-align: center;
+    border-radius: 8px;
+    margin-bottom: 5px;
+    width: 200px;
+}
+
+.dropdown-menu a:hover {
+    color: var(--accent-color);
+    background-color: rgba(98, 0, 234, 0.1);
+}
+
+@media (max-width: 880px) {
+    .hamburger-menu {
+        display: flex;
+    }
+    
+    .nav {
+        display: none;
+    }
+    
+    .header {
+        padding: 1rem 1.5rem;
+        justify-content: space-between;
+    }
+}
+
 /* Адаптивность */
 @media (max-width: 768px) {
     h1 { font-size: 2.5rem; }
     .history-block, .section-block { font-size: 1.2rem; }
     .history-title { font-size: 1.8rem; }
+    #wheel-container {
+        width: 250px;
+        height: 250px;
+    }
+    #sector-info {
+        width: 200px;
+        max-height: 300px;
+    }
+    #sector-controls {
+        flex-wrap: nowrap; 
+        gap: 5px;
+    }
+    button {
+        padding: 8px 16px;
+    }
+    #pointer {
+        top: 12vh;
+    }
 }
 
 @media (max-width: 480px) {
     h1 { font-size: 2rem; }
     p { font-size: 1.2rem; }
-    .header, .nav { flex-direction: column; text-align: center; }
-    .logo { margin-bottom: 1rem; }
+    .logo-theme-container { 
+        flex-direction: row; 
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+    }
+    .logo { margin-bottom: 0; }
+    #container {
+        flex-direction: column; 
+        gap: 50px;
+    }
+    #sector-info {
+        max-height: 300px;
+    }
+    button {
+        padding: 10px 16px;
+    }
 }
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
     text-align: center;
 }
-
 
 .section_gen {
     margin: 50px 0;
@@ -317,13 +449,10 @@ button:hover, .details-btn:hover, .start-btn:hover {
     transition: background-color 0.3s, color 0.3s;
 }
 
-
-
 .checkboxes label {
     display: block;
     margin: 5px 0;
 }
-
 
 .copy-container {
     display: inline-block;
@@ -430,8 +559,6 @@ h2 {
     list-style-type: none;
     padding: 0;
 }
-
-
 
 .tabs {
   display: flex;

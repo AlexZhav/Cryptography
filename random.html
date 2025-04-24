@@ -11,7 +11,10 @@
 <body>
 
     <header class="header">
-        <div class="logo"><a href="index.html">Криптография</a></div>
+        <div class="logo-theme-container">
+          <div class="logo"><a href="index.html">Криптография</a></div>
+          <div id="theme-toggle" class="theme-toggle">🌞</div>
+        </div>
         <nav class="nav">
           <a href="ciphers.html">Шифрование</a>
           <a href="methods.html">Методы шифрования</a>
@@ -19,8 +22,20 @@
           <a href="history.html">История криптографии</a>
           <a href="random.html">Рандомайзеры</a>
         </nav>
-        <div id="theme-toggle" class="theme-toggle">🌙</div>
+        <div class="hamburger-menu">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
       </header>
+      
+      <div class="dropdown-menu">
+        <a href="ciphers.html">Шифрование</a>
+        <a href="methods.html">Методы шифрования</a>
+        <a href="gen.html">Генератор паролей</a>
+        <a href="history.html">История криптографии</a>
+        <a href="random.html">Рандомайзеры</a>
+      </div>
 
 
     <div class="tabs">

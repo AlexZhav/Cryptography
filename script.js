@@ -59,3 +59,24 @@ function showNotification(message, duration = 3000) {
 window.alert = showNotification; 
 
 
+document.addEventListener('DOMContentLoaded', function() {
+  const hamburgerMenu = document.querySelector('.hamburger-menu');
+  const dropdownMenu = document.querySelector('.dropdown-menu');
+  
+  hamburgerMenu.addEventListener('click', function(event) {
+    event.stopPropagation(); // Предотвращаем всплытие события
+    hamburgerMenu.classList.toggle('open');
+    dropdownMenu.classList.toggle('open');
+  });
+  
+  // Предотвращаем закрытие меню при клике по самому меню
+  dropdownMenu.addEventListener('click', function(event) {
+    event.stopPropagation();
+  });
+  
+  // Закрывать меню при клике вне его
+  document.addEventListener('click', function() {
+    hamburgerMenu.classList.remove('open');
+    dropdownMenu.classList.remove('open');
+  });
+});
