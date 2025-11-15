@@ -115,11 +115,14 @@ p {
     flex-direction: column;
     align-items: center;
     max-width: 900px;
+    width: 90%; /* Ограничиваем ширину в процентах от родителя */
     margin: 0 auto;
+    padding: 0 10px; /* Добавляем базовые отступы */
 }
 
 .section-block, .history-block {
     width: 100%;
+    box-sizing: border-box; /* Учитываем padding в общей ширине */
     padding: 2rem;
     margin: 1.5rem 0;
     border: 2px solid var(--accent-color);
@@ -127,6 +130,8 @@ p {
     background-color: var(--block-bg);
     transition: transform 0.3s, background-color 0.3s;
     cursor: pointer;
+    position: relative; /* Для корректного контроля overflow */
+    overflow: visible; /* Позволяем эффекту hover выходить за границы блока */
 }
 
 .section-block:hover, .history-block:hover {
@@ -358,7 +363,6 @@ button:hover, .details-btn:hover, .start-btn:hover {
 /* Адаптивность */
 @media (max-width: 768px) {
     h1 { font-size: 2.5rem; }
-    .history-block, .section-block { font-size: 1.2rem; }
     .history-title { font-size: 1.8rem; }
     #wheel-container {
         width: 250px;
@@ -1686,4 +1690,46 @@ h2 {
     text-transform: uppercase;
     font-weight: bold;
     min-height: 1.5rem;
-} 
+}
+
+/* Добавляем адаптивные стили для разных размеров экрана */
+@media (max-width: 1120px) {
+    .sections, .history-sections {
+        width: 85%;
+        padding: 0 15px;
+    }
+    
+    /* Чуть меньший эффект увеличения для средних экранов */
+    .section-block:hover, .history-block:hover {
+        transform: scale(1.05);
+    }
+}
+
+@media (max-width: 768px) {
+    .sections, .history-sections {
+        width: 90%;
+        padding: 0 20px;
+    }
+    
+    .section-block, .history-block {
+        padding: 1.5rem;
+    }
+    
+    /* Ещё меньший эффект увеличения для мобильных экранов */
+    .section-block:hover, .history-block:hover {
+        transform: scale(1.03);
+    }
+}
+
+@media (max-width: 480px) {
+    .sections, .history-sections {
+        width: 95%;
+        padding: 0 10px;
+    }
+    
+    .section-block, .history-block {
+        padding: 1.2rem;
+        margin: 1rem 0;
+    }
+}
+ 
